@@ -1,12 +1,19 @@
-name: Il mio primo github action
+name: il mio primo github action
 on:
   push:
 jobs:
   italian-job:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
+      - uses: actions/checkout@v4
       - run: ls
       - run: sudo apt update
       - run: pwd
-      - run: ls -la 
+      - run: ls -la
       - run: java -version
+      - run: cd template-progetto
+      - run: ls
+      - run: pwd
+        working-directory: template-progetto
+      - run: mvn install
+        working-directory: template-progetto
